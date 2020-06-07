@@ -59,10 +59,6 @@ template <class T> struct MatrixImpl
                 ppT[uRow] = static_cast<T*>(operator new(uCols * sizeof(T)));
             }
         }
-        catch(const std::exception&)
-        {
-            memory_release(ppT, uRows_reserved); throw;
-        }
         catch(...)
         {
             memory_release(ppT, uRows_reserved); throw;
